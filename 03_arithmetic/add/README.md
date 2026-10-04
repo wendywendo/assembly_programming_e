@@ -1,4 +1,4 @@
-This README explains the CPU flags affected by the `ADD` and `ADC` instructions in the 3 assembly programs in the folder `add`.
+This README explains how the `ADD` and `ADC` instruction affect CPU flags.
 
 ---
 
@@ -18,25 +18,25 @@ Addition      = 10000010
 - **Interrupt Flag (IF)**
 - **Overflow Flag**
 
-### Auxiliary Carry Flag (AF)
+#### 1. Auxiliary Carry Flag (AF)
 There is a carry from the lower nibble. Hence:
 ```text
 AF = 1
 ```
 
-### Parity Flag (PF)
+#### 2. Parity Flag (PF)
 The number of 1's is 2 which is even. Hence:
 ```text
 PF = 1
 ```
 
-### Sign Flag (SF)
+#### 3. Sign Flag (SF)
 The left-most bit (MSB) of the result is 1. Hence:
 ```text
 SF = 1
 ```
 
-### Overflow Flag (OF)
+#### 4. Overflow Flag (OF)
 For a signed 8-bit number, the range is:
 ```text
 -128 to +127
@@ -52,7 +52,7 @@ Since, the addition of 2 positive numbers produced a negative result, **signed o
 OF = 1
 ```
 
-### Interrupt Flag (IF)
+#### 5. Interrupt Flag (IF)
 The `ADD` instruction does not modify the Interrupt Flag.
 On normal x86 execution, IF is normally enabled `(IF = 1)` so that the processor can respond to maskable interrupts.
 
@@ -76,6 +76,7 @@ addition = 32500
 - **Interrupt Flag (IF)**
 
 ### Why are other flags not set?
+
 #### 1. Carry Flag (CF)
 There is no carry from the leftmost bit (bit 15).
 
@@ -132,45 +133,45 @@ addition = 1 0000 0000 0000 0000
 - **Zero Flag (ZF)**
 - **Interrupt Flag (IF)**
 
-### Carry Flag (CF)
+#### 1. Carry Flag (CF)
 AX can only hold **16 bits**, so leftmost `1` does not fit. Therefore:
 ```text
 CF = 1
 ```
 
-### Zero Flag (ZF)
+#### 2. Zero Flag (ZF)
 The result is `0`, therefore:
 ```text
 ZF = 1
 ```
 
-### Sign Flag (SF)
+#### 3. Sign Flag (SF)
 The MSB is `0`. Therefore:
 ```text
 SF = 0
 ```
 
-### Overflow Flag (OF)
+#### 4. Overflow Flag (OF)
 There is no signed overflow. The signed interpretation of `0xFFFF` (1111 1111 1111 1111) is -1. `-1 + 1 = 0` which fits in the range `-32678 to +32678` for a signed number. Hence:
 ```text
 OF = 0
 ```
 
-### Parity Flag (PF)
+#### 5. Parity Flag (PF)
 The number of 1's in the result is `0`, which is even. Hence:
 
 ```text
 PF = 1
 ```
 
-### Auxiliary Carry Flag (AF)
+#### 6. Auxiliary Carry Flag (AF)
 There is a carry from bit 3 to bit 4. 
 Hence:
 ```text
 AF = 1
 ```
 
-### Interrupt Flag (IF)
+#### 7. Interrupt Flag (IF)
 IF is not modified by the `ADD instruction`
 
 ---
