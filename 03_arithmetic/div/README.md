@@ -49,7 +49,7 @@ depending on the processor and circumstances.
 
 ---
 
-# What about the Interrupt Flag (IF)?
+## What about the Interrupt Flag (IF)?
 The `DIV` instruction does not modify the Interrupt Flag (IF).
 
 On normal x86 execution, IF is normally enabled `(IF = 1)` so that the processor can respond to maskable interrupts.
