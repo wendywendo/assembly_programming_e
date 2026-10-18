@@ -17,7 +17,7 @@ repeat:
     syscall
 
     dec r12                   
-    jnz repeat                 
+    jnz repeat  ; Jumps if result of preceding arithmetic operation was not zero              
 
     ; Exit program
     mov rax, 60

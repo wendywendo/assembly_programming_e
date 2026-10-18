@@ -14,7 +14,7 @@ repeat:
     mov rdi, 1                  
     mov rsi, message
     mov rdx, length
-    syscall
+    syscall ; In x86-64 Linux, syscall overwrites RCX with the address of the next instruction.
 
     loop repeat    
 
